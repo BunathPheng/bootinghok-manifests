@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bootinghok
+  labels:
+    app: bootinghok
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bootinghok
+  template:
+    metadata:
+      labels:
+        app: bootinghok
+    spec:
+      containers:
+        - name: bootinghok
+          image: docker.io/phengbunath/bootinghok:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
